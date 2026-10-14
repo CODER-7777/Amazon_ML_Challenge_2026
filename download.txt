@@ -1,0 +1,52 @@
+8.4s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.4s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.4s 3 0.00s - to python to disable frozen modules.
+8.4s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.1s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.1s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.1s 7 0.00s - to python to disable frozen modules.
+9.1s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+10.5s 9 CPU threads: 4
+10.5s 10 Python: 3.12.13
+10.5s 11 Free working disk GiB: 19.5
+10.5s 12 Dataset: /kaggle/input/datasets/vivekananda777/amazon-ml-challenge-mad-svms/provided_dataset
+10.5s 13 Dataset GiB: 2.35
+10.7s 14 Error: Command '['/tmp/amazon_ml_env/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+10.7s 15 Error: Command '['/tmp/amazon_ml_env/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+10.7s 16 
+10.7s 17 Error: Command '['/tmp/amazon_ml_env/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+11.0s 18 Traceback (most recent call last):
+11.0s 19 File "<string>", line 1, in <module>
+11.0s 20 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 131, in execute_notebook
+11.0s 21 raise_for_execution_errors(nb, output_path)
+11.0s 22 File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+11.0s 23 raise error
+11.0s 24 papermill.exceptions.PapermillExecutionError:
+11.0s 25 ---------------------------------------------------------------------------
+11.0s 26 Exception encountered at "In [2]":
+11.0s 27 ---------------------------------------------------------------------------
+11.0s 28 CalledProcessError                        Traceback (most recent call last)
+11.0s 29 /tmp/ipykernel_16/3894986817.py in <cell line: 0>()
+11.0s 30 2 PYTHON = ENV / 'bin/python'
+11.0s 31 3 if not PYTHON.exists():
+11.0s 32 ----> 4     subprocess.run([sys.executable, '-m', 'venv', str(ENV)], check=True)
+11.0s 33 5 subprocess.run([str(PYTHON), '-m', 'pip', 'install', '-r',
+11.0s 34 6                 str(CODE / 'requirements.txt')], check=True)
+11.0s 35 
+11.0s 36 /usr/lib/python3.12/subprocess.py in run(input, capture_output, timeout, check, *popenargs, **kwargs)
+11.0s 37 569         retcode = process.poll()
+11.0s 38 570         if check and retcode:
+11.0s 39 --> 571             raise CalledProcessError(retcode, process.args,
+11.0s 40 572                                      output=stdout, stderr=stderr)
+11.0s 41 573     return CompletedProcess(process.args, retcode, stdout, stderr)
+11.0s 42 
+11.0s 43 CalledProcessError: Command '['/usr/bin/python3', '-m', 'venv', '/tmp/amazon_ml_env']' returned non-zero exit status 1.
+11.0s 44 
+13.7s 45 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+13.7s 46 cells[i][c] = re.sub('\\\\\|', '|', cell)
+13.9s 47 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+13.9s 48 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+14.6s 49 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+15.0s 50 [NbConvertApp] Writing 17199 bytes to __notebook__.ipynb
+17.8s 51 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+18.8s 52 [NbConvertApp] Writing 313509 bytes to __results__.html

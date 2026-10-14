@@ -1,0 +1,21 @@
+{
+  "train_pairs": 277889,
+  "validation_pairs": 34881,
+  "train_positives": 109602,
+  "validation_positives": 24401,
+  "sampled_blocking_recall": 0.8828101644245142,
+  "injected_training_positives": 12930,
+  "trees": 800,
+  "elapsed_seconds": 1108.2335725019984,
+  "settings": {
+    "sample_anchors": 20000,
+    "random_targets": 100000,
+    "iterations": 800,
+    "seed": 42,
+    "candidates": 3,
+    "retrieval_limit": 12,
+    "max_postings": 3000,
+    "threads": 8
+  },
+  "note": "Pair validation is entity-disjoint. Run calibrate on the FULL training catalog for macro F0.5 and the final threshold."
+}
