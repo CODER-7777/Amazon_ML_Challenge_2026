@@ -1,0 +1,37 @@
+# ── Virtual environments ────────────────────────────────────────────────
+env/
+.venv/
+solution/.venv/
+
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# ── macOS / archives ────────────────────────────────────────────────────
+.DS_Store
+__MACOSX/
+
+# ── Supplied datasets (large TSVs) ──────────────────────────────────────
+**/dataset/**/*.tsv
+6ab10eb3b23ba_student_resource/student_resource/dataset/
+cloud_upload/provided_dataset.zip
+
+# ── Heavy artifacts / databases / submissions ───────────────────────────
+**/*.sqlite
+**/*.sqlite-wal
+**/*.sqlite-shm
+artifacts/checkpoint_backups/
+artifacts/output/
+artifacts/sample.tsv
+artifacts/sample_owners.json
+artifacts/*.zip
+
+# ── Generated validation-harness byproducts (keep logs/reports, drop dumps) ──
+solution/validation/**/output/
+solution/validation/**/unpacked/
+solution/validation/**/sample.tsv
+solution/validation/**/sample_owners.json
+solution/validation/**/*.zip
