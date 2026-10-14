@@ -1,0 +1,12 @@
+{
+  "source": {
+    "size": 23180,
+    "mtime_ns": 1790464774474845994,
+    "version": 1
+  },
+  "countries": {
+    "us": 100,
+    "india": 100,
+    "france": 30
+  }
+}

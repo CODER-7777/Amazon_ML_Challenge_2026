@@ -1,0 +1,209 @@
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/artifacts --threads 2 --batch-size 23 --sample-anchors 10000 --random-targets 10000 --iterations 60 train
+Sampled 240 complete entity groups and 81 additional targets.
+0:	test: 0.9995864	best: 0.9995864 (0)	total: 47.2ms	remaining: 2.78s
+59:	test: 0.9995864	best: 0.9995864 (0)	total: 93.8ms	remaining: 0us
+
+bestTest = 0.9995864351
+bestIteration = 0
+
+Shrink model to first 1 iterations.
+{
+  "train_pairs": 1202,
+  "validation_pairs": 145,
+  "train_positives": 397,
+  "validation_positives": 93,
+  "sampled_blocking_recall": 1.0,
+  "injected_training_positives": 0,
+  "trees": 1,
+  "elapsed_seconds": 0.555612807999978,
+  "settings": {
+    "sample_anchors": 10000,
+    "random_targets": 10000,
+    "iterations": 60,
+    "seed": 42,
+    "candidates": 3,
+    "retrieval_limit": 12,
+    "max_postings": 3000,
+    "threads": 2
+  },
+  "note": "Pair validation is entity-disjoint. Run calibrate on the FULL training catalog for macro F0.5 and the final threshold."
+}
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/artifacts --threads 2 --batch-size 23 calibrate
+Reusing completed index: /tmp/ber-e2e-64fcilyv/artifacts/index_train
+Processed 571 new targets in 0.4s. Complete=True
+{
+  "threshold": 0.5,
+  "margin": 0.05,
+  "macro_f05": 0.9927536231884059,
+  "precision": 1.0,
+  "recall": 0.978494623655914,
+  "validation_anchors": 46,
+  "validation_singletons": 6,
+  "blocking_recall": 1.0,
+  "candidate_pairs": 326,
+  "candidates_per_anchor": 7.086956521739131,
+  "full_catalog": true,
+  "model_sha256": "e214d3811d8b3024b76a066de79f223a37ba342ef8e776fff164722cf11e0a7d",
+  "note": "Threshold-tuned validation, not a test/leaderboard estimate. Entity-disjoint training; France has no labeled validation data."
+}
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/artifacts --threads 2 --batch-size 23 predict
+Processed 142 new targets in 0.1s. Complete=True
+{
+  "anchors": 60,
+  "candidate_pairs": 423,
+  "matches": 118,
+  "predicted_singletons": 6,
+  "candidates_per_anchor": 7.05,
+  "threshold": 0.5,
+  "margin": 0.05,
+  "full_test": true,
+  "model_sha256": "e214d3811d8b3024b76a066de79f223a37ba342ef8e776fff164722cf11e0a7d",
+  "calibration_sha256": "aceac20130c617fd6de38639c2e366d29fbe74246e8b30e7aa67b3ba55406095",
+  "output_sha256": {
+    "matching_results.tsv": "5ea95a8890a5eede10c72146d1c39ecc41b4375e76a99d66d144b788669924ce",
+    "candidate_pairs.tsv": "9d94deff4c835ca1a215f37c00ec08441bbc50f926cf72fe20a7ab76ce74b1e1"
+  },
+  "validation": "PASS: all anchors exactly once; actual scored candidates; matches subset; valid prefixes. Target existence follows from scoring supplied target rows only."
+}
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/artifacts --threads 2 --batch-size 23 --team VALIDATION_ONLY package
+LEADERBOARD: /tmp/ber-e2e-64fcilyv/artifacts/output/matching_results.tsv
+FINAL PACKAGE: /tmp/ber-e2e-64fcilyv/artifacts/VALIDATION_ONLY_submission.zip
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/calibration_resume --threads 2 --batch-size 23 --max-targets 31 calibrate
+Processed 31 new targets in 0.0s. Complete=False
+Checkpoint saved. Resume calibrate without --max-targets before submitting.
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/calibration_resume --threads 2 --batch-size 23 calibrate
+Reusing completed index: /tmp/ber-e2e-64fcilyv/calibration_resume/index_train
+Processed 540 new targets in 0.4s. Complete=True
+{
+  "threshold": 0.5,
+  "margin": 0.05,
+  "macro_f05": 0.9927536231884059,
+  "precision": 1.0,
+  "recall": 0.978494623655914,
+  "validation_anchors": 46,
+  "validation_singletons": 6,
+  "blocking_recall": 1.0,
+  "candidate_pairs": 326,
+  "candidates_per_anchor": 7.086956521739131,
+  "full_catalog": true,
+  "model_sha256": "e214d3811d8b3024b76a066de79f223a37ba342ef8e776fff164722cf11e0a7d",
+  "note": "Threshold-tuned validation, not a test/leaderboard estimate. Entity-disjoint training; France has no labeled validation data."
+}
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/changed_threshold --threads 2 --batch-size 23 --team INVALID package
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 43, in <module>
+    main()
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 39, in main
+    actions[args.command](args)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/package.py", line 25, in package
+    raise ValueError('Calibration changed after prediction. Run predict again before packaging.')
+ValueError: Calibration changed after prediction. Run predict again before packaging.
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/tampered_output --threads 2 --batch-size 23 --team INVALID package
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 43, in <module>
+    main()
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 39, in main
+    actions[args.command](args)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/package.py", line 28, in package
+    raise ValueError(f'{filename} changed after validation. Run predict again before packaging.')
+ValueError: matching_results.tsv changed after validation. Run predict again before packaging.
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/prediction_resume --threads 2 --batch-size 23 --max-targets 17 predict
+Processed 17 new targets in 0.0s. Complete=False
+Partial checkpoint saved. No submission exported. Resume predict without --max-targets.
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/prediction_resume --threads 2 --batch-size 23 --team VALIDATION_ONLY package
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 43, in <module>
+    main()
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 39, in main
+    actions[args.command](args)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/package.py", line 15, in package
+    raise ValueError(f'Missing {name}; finish the pipeline before packaging.')
+ValueError: Missing prediction_report.json; finish the pipeline before packaging.
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/prediction_resume --threads 2 --batch-size 23 predict
+Reusing completed index: /tmp/ber-e2e-64fcilyv/prediction_resume/index_test
+Processed 125 new targets in 0.1s. Complete=True
+{
+  "anchors": 60,
+  "candidate_pairs": 423,
+  "matches": 118,
+  "predicted_singletons": 6,
+  "candidates_per_anchor": 7.05,
+  "threshold": 0.5,
+  "margin": 0.05,
+  "full_test": true,
+  "model_sha256": "e214d3811d8b3024b76a066de79f223a37ba342ef8e776fff164722cf11e0a7d",
+  "calibration_sha256": "aceac20130c617fd6de38639c2e366d29fbe74246e8b30e7aa67b3ba55406095",
+  "output_sha256": {
+    "matching_results.tsv": "5ea95a8890a5eede10c72146d1c39ecc41b4375e76a99d66d144b788669924ce",
+    "candidate_pairs.tsv": "9d94deff4c835ca1a215f37c00ec08441bbc50f926cf72fe20a7ab76ce74b1e1"
+  },
+  "validation": "PASS: all anchors exactly once; actual scored candidates; matches subset; valid prefixes. Target existence follows from scoring supplied target rows only."
+}
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/changed_model --threads 2 --batch-size 23 predict
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 43, in <module>
+    main()
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/__main__.py", line 39, in main
+    actions[args.command](args)
+  File "/home/vivekananda/Amazon_ML_Challenge_2026/solution/src/ber/inference.py", line 186, in predict
+    raise ValueError('Model changed after calibration; calibrate the new model.')
+ValueError: Model changed after calibration; calibrate the new model.
+
+
+/home/vivekananda/Amazon_ML_Challenge_2026/solution/.venv/bin/python -m ber --data /tmp/ber-e2e-64fcilyv/dataset --work /tmp/ber-e2e-64fcilyv/unpacked/code/business_entity_resolution/artifacts --threads 2 --batch-size 23 predict
+Processed 142 new targets in 0.1s. Complete=True
+{
+  "anchors": 60,
+  "candidate_pairs": 423,
+  "matches": 118,
+  "predicted_singletons": 6,
+  "candidates_per_anchor": 7.05,
+  "threshold": 0.5,
+  "margin": 0.05,
+  "full_test": true,
+  "model_sha256": "e214d3811d8b3024b76a066de79f223a37ba342ef8e776fff164722cf11e0a7d",
+  "calibration_sha256": "aceac20130c617fd6de38639c2e366d29fbe74246e8b30e7aa67b3ba55406095",
+  "output_sha256": {
+    "matching_results.tsv": "5ea95a8890a5eede10c72146d1c39ecc41b4375e76a99d66d144b788669924ce",
+    "candidate_pairs.tsv": "9d94deff4c835ca1a215f37c00ec08441bbc50f926cf72fe20a7ab76ce74b1e1"
+  },
+  "validation": "PASS: all anchors exactly once; actual scored candidates; matches subset; valid prefixes. Target existence follows from scoring supplied target rows only."
+}

@@ -1,0 +1,17 @@
+{
+  "anchors": 230,
+  "candidate_pairs": 4795,
+  "matches": 710,
+  "predicted_singletons": 26,
+  "candidates_per_anchor": 20.847826086956523,
+  "threshold": 0.7,
+  "margin": 0.05,
+  "full_test": true,
+  "model_sha256": "9ea0aa618c3d027841a440e565d2491ccfb10bc49bda45cb7404913e2d554043",
+  "calibration_sha256": "18022c4264f554fa0d2a97b177c2e2d314de38889e6c8697f91f4af6a8413d55",
+  "output_sha256": {
+    "matching_results.tsv": "88d81c20d883df8a52e9bf66570dd892c772353ebc8ef4d67e71910fe6407314",
+    "candidate_pairs.tsv": "2d3a1247af181f1b2020b36be20da4ac33d991384bad335ac55b7ebcfdb51141"
+  },
+  "validation": "PASS: all anchors exactly once; actual scored candidates; matches subset; valid prefixes. Target existence follows from scoring supplied target rows only."
+}

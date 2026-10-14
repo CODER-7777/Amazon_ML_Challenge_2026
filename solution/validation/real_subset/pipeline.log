@@ -1,0 +1,68 @@
+Sampled 800 complete entity groups and 2,000 additional targets.
+0:	test: 0.9957841	best: 0.9957841 (0)	total: 54.2ms	remaining: 13.5s
+100:	test: 0.9996911	best: 0.9996961 (50)	total: 532ms	remaining: 785ms
+200:	test: 0.9997012	best: 0.9997215 (146)	total: 1.01s	remaining: 246ms
+Stopped by overfitting detector  (80 iterations wait)
+
+bestTest = 0.9997214696
+bestIteration = 146
+
+Shrink model to first 147 iterations.
+{
+  "train_pairs": 6156,
+  "validation_pairs": 906,
+  "train_positives": 2082,
+  "validation_positives": 541,
+  "sampled_blocking_recall": 0.9761273209549072,
+  "injected_training_positives": 47,
+  "trees": 147,
+  "elapsed_seconds": 4.034618408999904,
+  "settings": {
+    "sample_anchors": 10000,
+    "random_targets": 10000,
+    "iterations": 250,
+    "seed": 42,
+    "candidates": 3,
+    "retrieval_limit": 12,
+    "max_postings": 3000,
+    "threads": 2
+  },
+  "note": "Pair validation is entity-disjoint. Run calibrate on the FULL training catalog for macro F0.5 and the final threshold."
+}
+Reusing completed index: /home/vivekananda/Amazon_ML_Challenge_2026/solution/validation/real_subset/artifacts/index_train
+Processed 4,639 new targets in 2.6s. Complete=True
+{
+  "threshold": 0.7,
+  "margin": 0.05,
+  "macro_f05": 0.9688149359536111,
+  "precision": 0.996268656716418,
+  "recall": 0.9587073608617595,
+  "validation_anchors": 169,
+  "validation_singletons": 12,
+  "blocking_recall": 0.9712746858168761,
+  "candidate_pairs": 2265,
+  "candidates_per_anchor": 13.402366863905325,
+  "full_catalog": true,
+  "model_sha256": "9ea0aa618c3d027841a440e565d2491ccfb10bc49bda45cb7404913e2d554043",
+  "note": "Threshold-tuned validation, not a test/leaderboard estimate. Entity-disjoint training; France has no labeled validation data."
+}
+Processed 2,198 new targets in 1.0s. Complete=True
+{
+  "anchors": 230,
+  "candidate_pairs": 4795,
+  "matches": 710,
+  "predicted_singletons": 26,
+  "candidates_per_anchor": 20.847826086956523,
+  "threshold": 0.7,
+  "margin": 0.05,
+  "full_test": true,
+  "model_sha256": "9ea0aa618c3d027841a440e565d2491ccfb10bc49bda45cb7404913e2d554043",
+  "calibration_sha256": "18022c4264f554fa0d2a97b177c2e2d314de38889e6c8697f91f4af6a8413d55",
+  "output_sha256": {
+    "matching_results.tsv": "88d81c20d883df8a52e9bf66570dd892c772353ebc8ef4d67e71910fe6407314",
+    "candidate_pairs.tsv": "2d3a1247af181f1b2020b36be20da4ac33d991384bad335ac55b7ebcfdb51141"
+  },
+  "validation": "PASS: all anchors exactly once; actual scored candidates; matches subset; valid prefixes. Target existence follows from scoring supplied target rows only."
+}
+LEADERBOARD: /home/vivekananda/Amazon_ML_Challenge_2026/solution/validation/real_subset/artifacts/output/matching_results.tsv
+FINAL PACKAGE: /home/vivekananda/Amazon_ML_Challenge_2026/solution/validation/real_subset/artifacts/REAL_SUBSET_VALIDATION_ONLY_submission.zip

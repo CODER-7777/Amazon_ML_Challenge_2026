@@ -1,0 +1,31 @@
+{
+  "signature": {
+    "files": [
+      {
+        "size": 80871,
+        "mtime_ns": 1790464774466845703,
+        "version": 1
+      },
+      {
+        "size": 227163,
+        "mtime_ns": 1790464774470845848,
+        "version": 1
+      },
+      {
+        "size": 230014,
+        "mtime_ns": 1790464774474845994,
+        "version": 1
+      },
+      {
+        "size": 45219,
+        "mtime_ns": 1790464774479846175,
+        "version": 1
+      }
+    ],
+    "sample_anchors": 10000,
+    "random_targets": 10000,
+    "seed": 42
+  },
+  "selected_anchors": 800,
+  "targets": 4639
+}
